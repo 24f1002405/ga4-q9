@@ -1,7 +1,6 @@
 on:
   schedule:
-    - cron: "0 0 * * *"
-  workflow-dispatch:
+    - cron: "57 22 * * *"
 
 jobs:
   main:
