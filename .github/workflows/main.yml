@@ -1,0 +1,25 @@
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow-dispatch:
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 24f1002405@ds.study.iitm.ac.in
+        run: touch README.md
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add README.md
+          git commit -m "Scheduled commit" || exit 0
+          git push
